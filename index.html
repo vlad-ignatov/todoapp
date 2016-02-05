@@ -1,59 +1,60 @@
 <!doctype html>
 <html>
   <head>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src =
+      "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+    </script>
     <script src = "src.js"></script>
-    <title>"To Do" Application </head>
-  </title>
+
+    <title>"To Do" Application </title>
+  </head>
 
   <body>
-    <div>
-      <p><b>To Do App </b></p>
+    <div style="background-color: #2c3e50">
+      <p style="color:#3498db"><b>To Do App </b></p>
     </div>
 
-    <form>
+    <form = style="background-color:#ecf0f1">
       <fieldset>
         <legend>
           <input type="button" value="Toggle" id="btnAddNewToggle">
-          <i><u>Add a new task pannel </u></i>
+          <b><i><u>Add a new task pannel </u></i></b>
         </legend>
 
         <div id="divAddNew">
-          <input type="text" value="Task name ">
+          New task:
+          <input type="text" value="Up to 32 characters" id="inAddNewName"
+            size="32" maxlength="32" autofocus onclick="this.select()">
           <input type="button" value="Add" id="btnAddNew">
         </div>
       </fieldset>
     </form>
 
-    <div>
+    <div style="background-color:#ecf0f1">
       <p>
         <button id="btnStatusToggle">Toggle </button>
-        <i><u>Status pannel </u></i>
+        <b><i><u>Status pannel </u></i></b>
       </p>
       <div id="divStatus">
         <p>It's empty for now </p>
       </div>
     </div>
 
-    <div>
+    <div style="background-color:#ecf0f1">
       <p>
         <button id="btnTaskListToggle">Toggle </button>
-        <i><u>Task list pannel </u></i>
+        <b><i><u>Task list pannel </u></i></b>
       </p>
-      <div id="divTaskList">
-        <p>It's empty for now </p>
-      </div>
+      <div id="divTaskList"></div>
     </div>
 
-    <div>
+    <div style="background-color:#ecf0f1">
       <p>
         <button id="btnAboutToggle">Toggle </button>
-        <i><u>About pannel </u></i>
+        <b><i><u>About pannel </u></i></b>
       </p>
       <div id="divAbout">
-        <p>It's empty for now </p>
-        <p> </p>
-        <p>Ver. 0.2.60205.3 </p>
+        <p>Ver. 0.2.60205.4 </p>
       </div>
     </div>
   </body>
