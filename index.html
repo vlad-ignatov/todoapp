@@ -6,12 +6,19 @@
     </script>
     <script src = "src.js"></script>
 
+    <style>
+      a:link    {color:green; background-color:transparent; text-decoration:none}
+      a:visited {color:green; background-color:transparent; text-decoration:none}
+      a:hover   {color:green; background-color:transparent; text-decoration:underline}
+      a:active  {color:green; background-color:transparent; text-decoration:underline}
+    </style>
+
     <title>"To Do" Application </title>
   </head>
 
   <body>
-    <div style="background-color: #2c3e50">
-      <p style="color:#3498db"><b>To Do App </b></p>
+    <div style="background-color: #bdc3c7">
+      <p><b>To Do App </b></p>
     </div>
 
     <form = style="background-color:#ecf0f1">
@@ -52,7 +59,41 @@
         <b><i><u>About pannel </u></i></b>
       </p>
       <div id="divAbout">
-        <p>Ver. 0.2.60207.1 </p>
+        <p>Version 0.2.60207.1 </p>
+
+        <p>
+          This is a simple "to do" application with basic functionality.
+          <br/>It uses HTML (some HTML5 features), JavaScript,
+            jQuery library, and just a little CSS.
+        </p>
+
+        <p>
+          <ul><b>Features: </b>
+            <li>Add new task. </li>
+            <li>Name limitation - up to 32 characters. </li>
+            <li>Edit task's name. </li>
+            <li>Remove a task, when it is done. </li>
+            <li>Represent every task as an object with own propreties. </li>
+            <li>All task objects are stored in an array. </li>
+            <li>Task list is represented on the web page. </li>
+            <li>Sequense of div-elements (with sub-elements) is used,
+              instead of ordered/unordered HTML lists. </li>
+              <li>A simple Status pannel. </li>
+              <li>Show/Hide different pannels. </li>
+            </ul>
+          </p>
+
+        <p>
+          <ul><b>To do: </b>
+            <li>A lot of things... </li>
+          </ul>
+        </p>
+
+        <p>Github repository:
+          <a href="https://github.com/atorov/todoapp" target="_blank">
+            https://github.com/atorov/todoapp
+          </a>
+        </p>
       </div>
     </div>
   </body>

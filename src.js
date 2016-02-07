@@ -1,15 +1,12 @@
 "use strict"
-
 $(document).ready(function() {
-  var taskList = [];
-
-  // Task ID
-    var taskID = {
+  var taskID = {
     val  : 1000,
     inc  : function() {
        return ++this.val;
     }
   }
+  var taskList = [];
 
   // Delete task (when is done)
   function delTask(btn, list, id) {
@@ -19,26 +16,44 @@ $(document).ready(function() {
     });
     // Update task list (remove element from array)
     list.splice(index, 1);
-    // Update task list div
-    $("#" + parseInt(btn.id) + "_divTaskItem").remove();
+    // Update task list div (remove task's sub-div)
+    $(btn).parent().remove();
     // Update status pannel
     showStat(list, id);
   }
 
   // Edit task list item
-  function editTaskListItem(btn, list) {
+  function editTaskListItem(btn, list, id) {
     // Find task index
-    // var index = $.map(list, function(e, i) {
-    //  if(e.id === parseInt(btn.id)){ return i; }
-    //});
-
-    console.log(btn.id);
+    var index = $.map(list, function(e, i) {
+      if(e.id === parseInt(btn.id)){ return i; }
+    });
+    var task = list[index];
     // Update task list div (edit mode)
-    // var span_id = $("<span></span>").append("ID_" + "TBD" + ": ");
-    // var in_name = $("<input></input>").
-    //   attr("type", "text");
-    //////append("" + task.name + " ");
-    //$("#" + btn.id).parent().empty().append(span_id, in_name);
+    var span_id = $("<span></span>").
+      append("ID_" + task.id + ": ");
+    var in_name = $("<input></input>").
+      attr({
+        "type"      : "text",
+        "value"     : task.name,
+        "id"        : "" + task.id + "_inEditName",
+        "size"      : 32,
+        "maxlength" : 32,
+        "autofocus" : "",
+        "onclick"   : "this.select()"
+      });
+    var btn_update = $("<button></button>").
+      append("Update").
+      click(function() {
+        // Update task list array
+        list[index].name = $("#" + task.id + "_inEditName").val();
+        // Update task list div
+        $(this).parent().remove();
+        $("#divTaskList").prepend(genTaskItem(list[index], list, id));
+      });
+    $("#" + btn.id).parent().
+      empty().
+      append(span_id, in_name, btn_update);
   }
 
   // Generate task list item
@@ -46,10 +61,12 @@ $(document).ready(function() {
     var span_id = $("<span></span>").append("ID_" + task.id + ": ");
     var span_name = $("<span></span>").append("" + task.name + " ");
     var btn_edit = $("<button></button>").
-      attr("id", "" + task.id + "_btnTaskItemEdit").append("Edit").
-      click(function() { editTaskListItem(this, list); });
+      attr("id", "" + task.id + "_btnTaskItemEdit").
+      append("Edit").
+      click(function() { editTaskListItem(this, list, id); });
     var btn_done = $("<button></button>").
-      attr("id", "" + task.id + "_btnTaskItemDone").append("Done!").
+      attr("id", "" + task.id + "_btnTaskItemDone").
+      append("Done!").
       click(function() { delTask(this, list, id); });
     return $("<div></div>").attr({
       "id"      : "" + task.id + "_divTaskItem",
