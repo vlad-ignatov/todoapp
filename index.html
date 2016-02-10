@@ -1,100 +1,100 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <script src =
-      "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+    "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
     </script>
     <script src = "src.js"></script>
 
     <style>
-      a:link    {color:green; background-color:transparent; text-decoration:none}
-      a:visited {color:green; background-color:transparent; text-decoration:none}
-      a:hover   {color:green; background-color:transparent; text-decoration:underline}
-      a:active  {color:green; background-color:transparent; text-decoration:underline}
+    a:link    {color:green; background-color:transparent; text-decoration:none}
+    a:visited {color:green; background-color:transparent; text-decoration:none}
+    a:hover   {color:green; background-color:transparent; text-decoration:underline}
+    a:active  {color:green; background-color:transparent; text-decoration:underline}
     </style>
 
     <title>"To Do" Application </title>
-  </head>
+</head>
 
-  <body>
+<body>
     <div style="background-color: #bdc3c7">
-      <p><b>To Do App </b></p>
+        <p><b>To Do App </b></p>
     </div>
 
     <form = style="background-color:#ecf0f1">
-      <fieldset>
-        <legend>
-          <input type="button" value="Toggle" id="btnAddNewToggle">
-          <b><i><u>Add new task pannel </u></i></b>
-        </legend>
+        <fieldset>
+            <legend>
+                <input type="button" value="Toggle" id="btnAddNewToggle">
+                <b><i><u>Add new task pannel </u></i></b>
+            </legend>
 
-        <div id="divAddNew">
-          New task:
-          <input type="text" value="Up to 32 characters" id="inAddNewName"
-            size="32" maxlength="32" autofocus onclick="this.select()">
-          <input type="button" value="Add" id="btnAddNew">
-        </div>
-      </fieldset>
+            <div id="divAddNew">
+                New task:
+                <input type="text" value="Up to 32 characters" id="inAddNewName"
+                size="32" maxlength="32" autofocus onclick="this.select()">
+                <input type="button" value="Add" id="btnAddNew">
+            </div>
+        </fieldset>
     </form>
 
     <div style="background-color:#ecf0f1">
-      <p>
-        <button id="btnStatusToggle">Toggle </button>
-        <b><i><u>Status pannel </u></i></b>
-      </p>
-      <div id="divStatus"></div>
+        <p>
+            <button id="btnStatusToggle">Toggle </button>
+            <b><i><u>Status pannel </u></i></b>
+        </p>
+        <div id="divStatus"></div>
     </div>
 
     <div style="background-color:#ecf0f1">
-      <p>
-        <button id="btnTaskListToggle">Toggle </button>
-        <b><i><u>Task list pannel </u></i></b>
-      </p>
-      <div id="divTaskList"></div>
+        <p>
+            <button id="btnTaskListToggle">Toggle </button>
+            <b><i><u>Task list pannel </u></i></b>
+        </p>
+        <div id="divTaskList"></div>
     </div>
 
     <div style="background-color:#ecf0f1">
-      <p>
-        <button id="btnAboutToggle">Toggle </button>
-        <b><i><u>About pannel </u></i></b>
-      </p>
-      <div id="divAbout">
-        <p>Version 0.2.60210.2 </p>
-
         <p>
-          This is a simple "to do" application with basic functionality.
-          <br/>It uses HTML (some HTML5 features), JavaScript,
-            jQuery library, and just a little CSS.
+            <button id="btnAboutToggle">Toggle </button>
+            <b><i><u>About pannel </u></i></b>
         </p>
+        <div id="divAbout">
+            <p>Version 0.2.60210.3 </p>
 
-        <p>
-          <ul><b>Features: </b>
-            <li>Add new task. </li>
-            <li>Name limitation - up to 32 characters. </li>
-            <li>Edit task's name. </li>
-            <li>Remove a task, when it is done. </li>
-            <li>Represent every task as an object with own propreties. </li>
-            <li>All task objects are stored in an array. </li>
-            <li>Task list is represented on the web page. </li>
-            <li>Sequense of div-elements (with sub-elements) is used,
-              instead of ordered/unordered HTML lists. </li>
-              <li>A simple Status pannel. </li>
-              <li>Show/Hide different pannels. </li>
-            </ul>
-          </p>
+            <p>
+                This is a simple "to do" application with basic functionality.
+                <br/>It uses HTML (some HTML5 features), JavaScript,
+                jQuery library, and just a little CSS.
+            </p>
 
-        <p>
-          <ul><b>To do: </b>
-            <li>A lot of things... </li>
-          </ul>
-        </p>
+            <p>
+                <ul><b>Features: </b>
+                    <li>Add new task. </li>
+                    <li>Name limitation - up to 32 characters. </li>
+                    <li>Edit task's name. </li>
+                    <li>Remove a task, when it is done. </li>
+                    <li>Represent every task as an object with own propreties. </li>
+                    <li>All task objects are stored in an array. </li>
+                    <li>Task list is represented on the web page. </li>
+                    <li>Sequense of div-elements (with sub-elements) is used,
+                        instead of ordered/unordered HTML lists. </li>
+                        <li>A simple Status pannel. </li>
+                        <li>Show/Hide different pannels. </li>
+                    </ul>
+                </p>
 
-        <p>Github repository:
-          <a href="https://github.com/atorov/todoapp" target="_blank">
-            https://github.com/atorov/todoapp
-          </a>
-        </p>
-      </div>
-    </div>
-  </body>
-</html>
+                <p>
+                    <ul><b>To do: </b>
+                        <li>A lot of things... </li>
+                    </ul>
+                </p>
+
+                <p>Github repository:
+                    <a href="https://github.com/atorov/todoapp" target="_blank">
+                        https://github.com/atorov/todoapp
+                    </a>
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>
