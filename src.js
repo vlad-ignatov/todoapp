@@ -10,79 +10,79 @@ jQuery(function($) {
     var taskList = [];
 
     // Delete task (when is done)
-    function delTask(btn, list, id) {
+    function delTask(btn, list, tid) {
         // Find task index
         var index = $.map(list, function(e, i) {
-            if(e.id === parseInt(btn.id)){ return i; }
+            if(e.id === parseInt(btn.id.slice(3))) { return i; }
         });
         // Update task list (remove element from array)
         list.splice(index, 1);
         // Update task list div (remove task's sub-div)
         $(btn).parent().remove();
         // Update status pannel
-        showStat(list, id);
+        showStat(list, tid);
     }
 
     // Edit task list item
-    function editTaskListItem(btn, list, id) {
+    function editTaskListItem(btn, list, idc) {
         // Find task index
         var index = $.map(list, function(e, i) {
-            if(e.id === parseInt(btn.id)){ return i; }
+            if(e.id === parseInt(btn.id.slice(3))) { return i; }
         });
         var task = list[index];
         // Update task list div (edit mode)
         var span_id = $("<span/>").
-        append("ID_" + task.id + ": ");
+            append("ID_" + task.id + ": ");
         var in_name = $("<input/>").
-        attr({
-            type      : "text",
-            value     : task.name,
-            id        : "" + task.id + "_inEditName",
-            size      : 32,
-            maxlength : 32,
-            autofocus : "",
-            onclick   : "this.select()"
+            attr({
+                id        : "id_" + task.id + "_inEditName",
+                type      : "text",
+                value     : task.name,
+                size      : 32,
+                maxlength : 32,
+                autofocus : "",
+                onclick   : "this.select()"
         });
         var btn_update = $("<button/>").
-        append("Update").
-        click(function() {
-            // Update task list array
-            list[index].name = $("#" + task.id + "_inEditName").val();
-            // Update task list div
-            $(this).parent().remove();
-            $("#divTaskList").prepend(genTaskItem(list[index], list, id));
-        });
+            append("Update").
+            click(function() {
+                // Update task list array
+                list[index].name = $("#id_" + task.id + "_inEditName").val();
+                // Update task list div
+                $(this).parent().remove();
+                $("#divTaskList").prepend(genTaskItem(list[index], list, idc));
+            });
         $("#" + btn.id).parent().
-        empty().
-        append(span_id, in_name, btn_update);
+            empty().
+            append(span_id, in_name, btn_update);
     }
 
     // Generate task list item
-    function genTaskItem(task, list, id) {
+    function genTaskItem(task, list, idc) {
         var span_id = $("<span/>").append("ID_" + task.id + ": ");
         var span_name = $("<span/>").append("" + task.name + " ");
         var btn_edit = $("<button/>").
-        attr("id", "" + task.id + "_btnTaskItemEdit").
-        append("Edit").
-        click(function() { editTaskListItem(this, list, id); });
+            attr("id", "id_" + task.id + "_btnTaskItemEdit").
+            append("Edit").
+            click(function() { editTaskListItem(this, list, idc); });
         var btn_done = $("<button/>").
-        attr("id", "" + task.id + "_btnTaskItemDone").
-        append("Done!").
-        click(function() { delTask(this, list, id); });
-        return $("<div/>").attr({
-            id      : "" + task.id + "_divTaskItem",
-            style   : "background-color:#bdc3c7",
-        }).append(span_id, span_name, btn_edit, btn_done);
+            attr("id", "id_" + task.id + "_btnTaskItemDone").
+            append("Done!").
+            click(function() { delTask(this, list, idc); });
+        return $("<div/>").
+            attr("style", "background-color:#bdc3c7").
+            append(span_id, span_name, btn_edit, btn_done);
     }
 
     // Show stat
-    function showStat(list, id) {
+    function showStat(list, idc) {
         var span_last_id = $("<span/>").
-        append("Last ID: " + id.val + "; ");
+            append("Last ID: " + idc.val + "; ");
         var span_task_num = $("<span/>").
-        append("Tasks: " + list.length + "; ");
-        $("#divStatus").empty().
-        append(span_last_id, span_task_num);
+            append("Tasks: " + list.length + "; ");
+        $("#divStatus").
+            empty().
+            append(span_last_id, span_task_num);
     }
 
     // Task prototype
