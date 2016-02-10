@@ -32,18 +32,19 @@ jQuery(function($) {
         var task = list[index];
         // Update task list div (edit mode)
         var span_id = $("<span/>").
-            append("ID_" + task.id + ": ");
+            attr("class", "w3-margin-2").
+            append("ID_" + task.id);
         var in_name = $("<input/>").
             attr({
                 id        : "id_" + task.id + "_inEditName",
                 type      : "text",
                 value     : task.name,
-                size      : 32,
-                maxlength : 32,
                 autofocus : "",
-                onclick   : "this.select()"
-        });
+                onclick   : "this.select()",
+                class     : "w3-large"
+            });
         var btn_update = $("<button/>").
+            attr("class", "w3-btn w3-light-grey w3-margin-2"). 
             append("Update").
             click(function() {
                 // Update task list array
@@ -59,19 +60,29 @@ jQuery(function($) {
 
     // Generate task list item
     function genTaskItem(task, list, idc) {
-        var span_id = $("<span/>").append("ID_" + task.id + ": ");
-        var span_name = $("<span/>").append("" + task.name + " ");
+        var span_id = $("<span/>").
+            attr("class", "w3-margin-2").
+            append("ID_" + task.id);
+        var span_name = $("<span/>").
+            attr("class", "w3-margin-2").
+            append("" + task.name + " ");
         var btn_edit = $("<button/>").
-            attr("id", "id_" + task.id + "_btnTaskItemEdit").
+            attr({
+                id    : "id_" + task.id + "_btnTaskItemEdit",
+                class : "w3-btn w3-light-grey"
+            }).
             append("Edit").
             click(function() { editTaskListItem(this, list, idc); });
         var btn_done = $("<button/>").
-            attr("id", "id_" + task.id + "_btnTaskItemDone").
+            attr({
+                id    : "id_" + task.id + "_btnTaskItemDone",
+                class : "w3-btn w3-light-grey"
+            }).
             append("Done!").
             click(function() { delTask(this, list, idc); });
         return $("<div/>").
-            attr("style", "background-color:#bdc3c7").
-            append(span_id, span_name, btn_edit, btn_done);
+            attr("class", "w3-margin-2").
+            append(btn_done, span_id, btn_edit, span_name);
     }
 
     // Show stat
@@ -108,6 +119,8 @@ jQuery(function($) {
             list.push(new_task);
             // Update task list div
             $("#divTaskList").prepend(genTaskItem(new_task, list, id));
+            // Reset input field
+            $("#inAddNewName").val("");
             // Update status pannel
             showStat(list, id);
         }(taskID, taskList);
