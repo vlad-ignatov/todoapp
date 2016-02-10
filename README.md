@@ -7,7 +7,7 @@ GitHub repository: [https://github.com/atorov/todoapp]
 
 ### Versions: 0.2.xxxx.xx
 Simple "to do" application with basic functionality.
-Uses HTML, JavaScript and jQuery.
+Uses HTML5, JavaScript and jQuery.
 
 ### Versions: 0.1.xxxx.xx
 Simple "to do" application with basic functionality.
