@@ -30,9 +30,9 @@ $(document).ready(function() {
     });
     var task = list[index];
     // Update task list div (edit mode)
-    var span_id = $("<span></span>").
+    var span_id = $("<span/>").
       append("ID_" + task.id + ": ");
-    var in_name = $("<input></input>").
+    var in_name = $("<input/>").
       attr({
         "type"      : "text",
         "value"     : task.name,
@@ -42,7 +42,7 @@ $(document).ready(function() {
         "autofocus" : "",
         "onclick"   : "this.select()"
       });
-    var btn_update = $("<button></button>").
+    var btn_update = $("<button/>").
       append("Update").
       click(function() {
         // Update task list array
@@ -58,17 +58,17 @@ $(document).ready(function() {
 
   // Generate task list item
   function genTaskItem(task, list, id) {
-    var span_id = $("<span></span>").append("ID_" + task.id + ": ");
-    var span_name = $("<span></span>").append("" + task.name + " ");
-    var btn_edit = $("<button></button>").
+    var span_id = $("<span/>").append("ID_" + task.id + ": ");
+    var span_name = $("<span/>").append("" + task.name + " ");
+    var btn_edit = $("<button/>").
       attr("id", "" + task.id + "_btnTaskItemEdit").
       append("Edit").
       click(function() { editTaskListItem(this, list, id); });
-    var btn_done = $("<button></button>").
+    var btn_done = $("<button/>").
       attr("id", "" + task.id + "_btnTaskItemDone").
       append("Done!").
       click(function() { delTask(this, list, id); });
-    return $("<div></div>").attr({
+    return $("<div/>").attr({
       "id"      : "" + task.id + "_divTaskItem",
       "style"   : "background-color:#bdc3c7",
     }).append(span_id, span_name, btn_edit, btn_done);
@@ -76,9 +76,9 @@ $(document).ready(function() {
 
   // Show stat
   function showStat(list, id) {
-    var span_last_id = $("<span></span>").
+    var span_last_id = $("<span/>").
       append("Last ID: " + id.val + "; ");
-    var span_task_num = $("<span></span>").
+    var span_task_num = $("<span/>").
       append("Tasks: " + list.length + "; ");
     $("#divStatus").empty().
       append(span_last_id, span_task_num);
