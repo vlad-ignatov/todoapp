@@ -3,6 +3,11 @@
 GitHub repository: [https://github.com/atorov/todoapp]
 (https://github.com/atorov/todoapp)
 
+## Version: 0.4.--
+Simple "to-do" application with basic functionality.
+This version introduces some significant changes.
+Uses HTML5, CSS, W3.CSS, JavaScript, jQuery, Underscore and Backbone.
+
 ## Version: 0.3.--
 Simple "to-do" application with basic functionality.
 Uses HTML5, CSS, W3.CSS, JavaScript and jQuery.
